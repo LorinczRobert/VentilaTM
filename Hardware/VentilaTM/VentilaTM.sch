@@ -132,7 +132,7 @@ Wire Wire Line
 Wire Wire Line
 	2650 4050 2750 4050
 Text GLabel 750  3750 0    39   Input ~ 0
-M_DIR
+M1_DIR
 Text GLabel 750  3650 0    39   Input ~ 0
 M_STEP
 Text GLabel 750  3550 0    39   Input ~ 0
@@ -142,7 +142,7 @@ Wire Wire Line
 Wire Wire Line
 	2750 3250 2750 3350
 Text GLabel 2750 3750 0    39   Input ~ 0
-M_DIR
+M2_DIR
 Text GLabel 2750 3650 0    39   Input ~ 0
 M_STEP
 Text GLabel 2750 3550 0    39   Input ~ 0
@@ -273,7 +273,7 @@ M1_EN
 Text GLabel 6200 2000 2    39   Input ~ 0
 M_STEP
 Text GLabel 3050 5675 2    39   Input ~ 0
-M_DIR
+M1_DIR
 Text GLabel 3050 6175 2    39   Input ~ 0
 M2_EN
 $Comp
@@ -735,8 +735,6 @@ F 3 "" H 650 4050 50  0001 C CNN
 	1    650  4050
 	1    0    0    -1  
 $EndComp
-Text Notes 2150 -175 0    157  ~ 0
-TODO: 4 endstop optice\n1 buton debounced click reconnect click and hold - apn la 90 de grade pe marginea pcb-ului sau undeva pe margine\n2 senzori pt a avea si presiunea atmosferica\n(ai o rezistenta prin care selectezi adresa)\nverifica gaurile de la cooler\nmicsoreaza placa, micsorand distanta dintr endstopuri\nvezi ce stie ciobu de-l avem pe spi si daca paote fi folosit ala pt a mana steppere sau alte bazaconii (MCP23S17-E/SO)\nscoate endstopurile de pe placa, dar pastreaza rezistentele ca se muta doar bariera optica\nsenzorul de presiune pe placa - grija unde-l pui sa nu bata vntilatorul pe el\n\n\n4ms intre pulsurile de step - vezi daca mere cu mcp-u ala\n\n3 coolere\n1 buton de panica intre endstopuri \n\nSILK:\nlogo Symme3D,\nVentilaTM Mk1\nPCB Rev.XXX\ndata\n\n\n\n\n
 $Comp
 L power:+3V3 #PWR0122
 U 1 1 5E74F9F4
@@ -1485,11 +1483,11 @@ F 3 "~" H 4825 2450 50  0001 C CNN
 $EndComp
 Text GLabel 3050 5775 2    39   Input ~ 0
 BTN1
-Text GLabel 3050 6675 2    39   Input ~ 0
+Text GLabel 3050 6975 2    39   Input ~ 0
 BTN2
-Text GLabel 3050 6575 2    39   Input ~ 0
+Text GLabel 3050 6875 2    39   Input ~ 0
 ENDSTOP2
-Text GLabel 3050 7175 2    39   Input ~ 0
+Text GLabel 3050 7075 2    39   Input ~ 0
 ENDSTOP1
 Text GLabel 5825 2750 2    39   Input ~ 0
 MOSI
@@ -1780,7 +1778,7 @@ Text GLabel 8100 4300 2    39   Input ~ 0
 SCK
 Text GLabel 8100 4200 2    39   Input ~ 0
 MISO
-Text GLabel 3050 6475 2    39   Input ~ 0
+Text GLabel 3050 6775 2    39   Input ~ 0
 CS1
 Text GLabel 8100 4000 2    39   Input ~ 0
 CS1
@@ -1810,4 +1808,93 @@ Wire Wire Line
 	8500 4425 8500 3900
 Wire Wire Line
 	8500 3900 8100 3900
+Text GLabel 3050 6275 2    39   Input ~ 0
+M2_DIR
+$Comp
+L Connector:Conn_01x02_Male J14
+U 1 1 5E7D0D08
+P 1550 1750
+F 0 "J14" H 1658 1931 50  0000 C CNN
+F 1 "3v3spare" H 1658 1840 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 1550 1750 50  0001 C CNN
+F 3 "~" H 1550 1750 50  0001 C CNN
+	1    1550 1750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x02_Male J15
+U 1 1 5E7D1F7D
+P 2275 1750
+F 0 "J15" H 2383 1931 50  0000 C CNN
+F 1 "3v3spare1" H 2383 1840 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 2275 1750 50  0001 C CNN
+F 3 "~" H 2275 1750 50  0001 C CNN
+	1    2275 1750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J16
+U 1 1 5E7D2D33
+P 3825 6675
+F 0 "J16" H 3750 6550 50  0000 C CNN
+F 1 "spare_pins" H 3625 6625 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 3825 6675 50  0001 C CNN
+F 3 "~" H 3825 6675 50  0001 C CNN
+	1    3825 6675
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3050 6475 3625 6475
+Wire Wire Line
+	3050 6575 3625 6575
+Wire Wire Line
+	3050 6675 3625 6675
+Wire Wire Line
+	3050 7175 3625 7175
+Wire Wire Line
+	3625 7175 3625 6775
+$Comp
+L power:+3V3 #PWR0148
+U 1 1 5E8685DD
+P 2475 1750
+F 0 "#PWR0148" H 2475 1600 50  0001 C CNN
+F 1 "+3V3" V 2475 2000 50  0000 C CNN
+F 2 "" H 2475 1750 50  0001 C CNN
+F 3 "" H 2475 1750 50  0001 C CNN
+	1    2475 1750
+	0    1    1    0   
+$EndComp
+$Comp
+L power:+3V3 #PWR0149
+U 1 1 5E86B723
+P 1750 1750
+F 0 "#PWR0149" H 1750 1600 50  0001 C CNN
+F 1 "+3V3" V 1750 2000 50  0000 C CNN
+F 2 "" H 1750 1750 50  0001 C CNN
+F 3 "" H 1750 1750 50  0001 C CNN
+	1    1750 1750
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0150
+U 1 1 5E86B9B1
+P 1750 1850
+F 0 "#PWR0150" H 1750 1600 50  0001 C CNN
+F 1 "GND" H 1755 1677 50  0000 C CNN
+F 2 "" H 1750 1850 50  0001 C CNN
+F 3 "" H 1750 1850 50  0001 C CNN
+	1    1750 1850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0151
+U 1 1 5E86BF64
+P 2475 1850
+F 0 "#PWR0151" H 2475 1600 50  0001 C CNN
+F 1 "GND" H 2480 1677 50  0000 C CNN
+F 2 "" H 2475 1850 50  0001 C CNN
+F 3 "" H 2475 1850 50  0001 C CNN
+	1    2475 1850
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
